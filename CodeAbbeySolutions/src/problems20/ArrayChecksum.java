@@ -1,5 +1,6 @@
 package problems20;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ArrayChecksum {
@@ -24,6 +25,17 @@ public class ArrayChecksum {
 		long result = 0;
 		for (int i = 0; i < inputs.length; i++) {
 			result = ((result + inputs[i]) * seed) % limit;
+		}
+		
+		return result;
+	}
+	
+	public static long checksum(ArrayList<Integer> inputs) {
+		int seed = 113;
+		int limit = 10000007;
+		long result = 0;
+		for (int i = 0; i < inputs.size(); i++) {
+			result = ((result + inputs.get(i)) * seed) % limit;
 		}
 		
 		return result;
