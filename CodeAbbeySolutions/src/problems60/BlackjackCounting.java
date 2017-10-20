@@ -12,6 +12,9 @@ public class BlackjackCounting {
 		for (int i = 0; i < size; i++) {
 			Scanner line = new Scanner(input.nextLine());
 			int point = 0;
+			
+			boolean firstAce = true;
+			
 			while (line.hasNext()) {
 				String card = line.next();
 				int cardValue = 0;
@@ -24,8 +27,9 @@ public class BlackjackCounting {
 					cardValue = 10;
 					break;
 				case "A":
-					if(point + 11 < 21) {
+					if(point + 11 <= 21 && firstAce) {
 						cardValue = 11;
+						firstAce = false;
 					}else {
 						cardValue = 1;
 					}
@@ -33,6 +37,9 @@ public class BlackjackCounting {
 				default:
 					cardValue = Integer.parseInt(card);
 					break;
+				}
+				if(point > 21 && !firstAce) {
+					point -= 10;
 				}
 				point += cardValue;
 			}
