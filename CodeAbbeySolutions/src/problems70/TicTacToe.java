@@ -34,7 +34,7 @@ public class TicTacToe {
 			
 			if(!gameOver)
 			{
-				System.out.print(0+" ");
+				System.out.print(0+" "); 
 			}
 		}
 	}
